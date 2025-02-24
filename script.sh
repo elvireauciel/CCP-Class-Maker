@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ $# != "1" ]; then
-    echo "./CPPClassMaker <class name>"
+    echo "CPPClassMaker <class name>"
 fi
 
 writeHPP() {
