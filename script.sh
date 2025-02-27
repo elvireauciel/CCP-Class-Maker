@@ -5,66 +5,11 @@ if [ $# != "1" ]; then
 fi
 
 writeHPP() {
-    echo "
-#pragma once
-#include <iostream>
-
-class $ClassName
-{
-private:
-    
-public:
-    $ClassName();
-    $ClassName(const $ClassName &copy);
-    virtual ~$ClassName();
-
-    $ClassName &operator=(const $ClassName &other);
-};" >includes/$ClassHeaderName
+    cat Template.hpp.txt | sed -e "s/Template/$ClassName/g" > includes/$ClassHeaderName
 }
 
-writeCPP()
-{
-    echo "
-#include \"$ClassName.hpp\"
-
-///////////////////////////////////////////////////////////////////
-///                  CONSTRUCTORS | DESTRUCTORS                  //
-///////////////////////////////////////////////////////////////////
-
-$ClassName::$ClassName()
-{
-    std::cout << \"$ClassName Constructor called\" << std::endl;
-}
-
-$ClassName::~$ClassName()
-{
-    std::cout << \"$ClassName Destructor called\" << std::endl;
-}
-
-$ClassName::$ClassName(const $ClassName &copy)
-{
-    std::cout << \"$ClassName copy Constructor called\" << std::endl;
-    *this = copy;
-}
-
-///////////////////////////////////////////////////////////////////
-///                        OPERATORS                             //
-///////////////////////////////////////////////////////////////////
-
-$ClassName &$ClassName::operator=(const $ClassName &other)
-{
-    // code
-    return (*this);
-}
-
-///////////////////////////////////////////////////////////////////
-///                    GETTERS | SETTERS                         //
-///////////////////////////////////////////////////////////////////
-
-///////////////////////////////////////////////////////////////////
-///                     MEMBER FUNCTIONS                         //
-///////////////////////////////////////////////////////////////////
-    "  > src/$ClassSourceName
+writeCPP() {
+    cat Template.cpp.txt | sed -e "s/Template/$ClassName/g" > src/$ClassSourceName
 }
 
 ClassName=$1
