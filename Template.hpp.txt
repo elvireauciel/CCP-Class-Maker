@@ -1,0 +1,14 @@
+#pragma once
+#include <iostream>
+
+class Template
+{
+private:
+    
+public:
+    Template();
+    Template(const Template &copy);
+    virtual ~Template();
+
+    Template &operator=(const Template &other);
+};

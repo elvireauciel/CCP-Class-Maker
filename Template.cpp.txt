@@ -1,4 +1,4 @@
-#include \"Template.hpp\"
+#include "Template.hpp"
 
 ///////////////////////////////////////////////////////////////////
 ///                  CONSTRUCTORS | DESTRUCTORS                  //
@@ -6,18 +6,18 @@
 
 Template::Template()
 {
-    std::cout << \"Template Constructor called\" << std::endl;
+    std::cout << "Template Constructor called" << std::endl;
 }
 
 Template::Template(const Template &copy)
 {
-    std::cout << \"Template copy Constructor called\" << std::endl;
+    std::cout << "Template copy Constructor called" << std::endl;
     *this = copy;
 }
 
 Template::~Template()
 {
-    std::cout << \"Template Destructor called\" << std::endl;
+    std::cout << "Template Destructor called" << std::endl;
 }
 
 ///////////////////////////////////////////////////////////////////
