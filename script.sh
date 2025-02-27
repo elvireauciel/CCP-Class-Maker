@@ -5,11 +5,11 @@ if [ $# != "1" ]; then
 fi
 
 writeHPP() {
-    cat Template.hpp.txt | sed -e "s/Template/$ClassName/g" > includes/$ClassHeaderName
+    cat $HOME/CPPClassMaker/Template.hpp.txt | sed -e "s/Template/$ClassName/g" > includes/$ClassHeaderName
 }
 
 writeCPP() {
-    cat Template.cpp.txt | sed -e "s/Template/$ClassName/g" > src/$ClassSourceName
+    cat $HOME/CPPClassMaker/Template.cpp.txt | sed -e "s/Template/$ClassName/g" > src/$ClassSourceName
 }
 
 ClassName=$1
